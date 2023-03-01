@@ -1,0 +1,2 @@
+export const MAXIMUM_COORDINATE = 50;
+export const MAXIMUM_INSTRUCTION = 100;
