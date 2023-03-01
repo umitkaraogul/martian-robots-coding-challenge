@@ -31,7 +31,7 @@ const parseInstruction = (instruction: string) => {
   }
 
   //Get Grid info
-  const commandLines = instruction.split('\n').filter(Boolean);
+  const commandLines = instruction.split('\n').filter((str) => str.trim());
   const [x, y] = commandLines[0].split(' ');
   const grid: Grid = {
     width: parseInt(x),
