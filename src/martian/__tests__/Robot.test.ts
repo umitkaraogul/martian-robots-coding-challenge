@@ -1,5 +1,5 @@
 import Robot from '../Robot';
-import { Grid } from '../types';
+import { Grid, Instruction } from '../types';
 
 describe('Robot', () => {
   const grid: Grid = {
@@ -64,5 +64,22 @@ describe('Robot', () => {
     expect(robot.coordinate.x).toEqual(1);
     expect(robot.coordinate.y).toEqual(2);
     expect(robot.orientation).toEqual('N');
+  });
+  describe('should lose when falls off the edge of the grid', () => {
+    it('should print "3 3 N LOST"  when given FRRFLLFFRRFLL', () => {
+      const robot = new Robot(
+        {
+          x: 3,
+          y: 2
+        },
+        'N',
+        grid
+      );
+      const instructions = 'FRRFLLFFRRFLL'.split('') as Instruction[];
+      robot.move(instructions);
+
+      expect(robot.isLost).toBeTruthy();
+      expect(robot.position).toBe('3 3 N LOST');
+    });
   });
 });
