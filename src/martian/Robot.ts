@@ -1,4 +1,5 @@
 import { Grid, Coordinate, Instruction, Orientation } from './types';
+import { leftOrientationMap, rightOrientationMap } from './util/orientationMap';
 
 export default class Robot {
   public coordinate: Coordinate;
@@ -13,18 +14,42 @@ export default class Robot {
     for (const instruction of instructions) {
       switch (instruction) {
         case 'L':
-          //TODO: implement turn left
+          this.turnLeft();
           break;
         case 'R':
-          //TODO: implement turn right
+          this.turnRight();
           break;
         case 'F':
-          //TODO: implement turn forward
+          this.forward();
           break;
         default:
-          //TODO:Throw error
           break;
       }
+    }
+  };
+
+  private turnLeft = () => {
+    this.orientation = leftOrientationMap[this.orientation];
+  };
+  private turnRight = () => {
+    this.orientation = rightOrientationMap[this.orientation];
+  };
+  private forward = () => {
+    switch (this.orientation) {
+      case 'N':
+        this.coordinate.y += 1;
+        break;
+      case 'S':
+        this.coordinate.y -= 1;
+        break;
+      case 'E':
+        this.coordinate.x += 1;
+        break;
+      case 'W':
+        this.coordinate.x -= 1;
+        break;
+      default:
+        break;
     }
   };
 }
