@@ -27,6 +27,11 @@ export default class Robot {
       }
     }
   };
+  get position() {
+    return `${this.coordinate.x} ${
+      this.coordinate.y
+    } ${this.orientation.toString()}`;
+  }
 
   private turnLeft = () => {
     this.orientation = leftOrientationMap[this.orientation];

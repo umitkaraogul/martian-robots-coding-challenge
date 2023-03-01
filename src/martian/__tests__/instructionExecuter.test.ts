@@ -1,4 +1,4 @@
-import executeInstruction from '../InstructionExecuter';
+import executeInstruction from '../instructionExecuter';
 
 describe('executeInstruction', () => {
   it('should return empty array when given empty', () => {
