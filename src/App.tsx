@@ -1,5 +1,7 @@
+import MarsScreen from './screens/MarsScreen';
+
 function App() {
-  return <div>{/* TODO */}</div>;
+  return <MarsScreen />;
 }
 
 export default App;
